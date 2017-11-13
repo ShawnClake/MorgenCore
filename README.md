@@ -1,2 +1,74 @@
 # MorgenCore
-Java library full of misc java functions for use in projects, prototyping, and efficient development
+### Java library full of misc java functions for use in projects, prototyping, and efficient development
+
+## Modules
+- Database
+- Connector Server
+- Messages
+- Account
+- Discord
+- Clone
+- Commands
+- Configuration
+- Crypto
+- Interactables
+- Inventory
+- Reflection
+- Services
+- Cooldown
+- Costs
+- Recipies
+- Properties
+- UserData
+    - Volatile UserData
+    - Persistent UserData
+
+## Planned Modules
+- File Interactions
+    - YAML, CSV, Text, PDF, Audio, Video
+    - Create, Initialize with defaults, read, copy, update, delete
+    - Database tracking
+    - Versioning
+    - Comments where appplicable
+- Directory Interactions
+    - Create, List, Recursive, Move, Delete, Find/Search, Filters
+- Stock Market
+    - View realtime stock market evaluations
+    - Create artificial stocks local to the application
+- Currency
+    - View realtime currency exchanges
+    - Compute an exchange
+    - Create artifical currencies local to the application
+- Facebook Accounts
+- Google Accounts
+- Steam Accounts
+- Twitter Accounts
+- User Interfaces
+    - 2D UI Buffer
+    - Auto-Sizing Grid-ing
+- Pagination
+- Logging
+- AI
+- Application Health Monitoring
+    - Periodic checks of chosen states in the application to show as health
+- AppAPI
+    - REST API endpoints
+- Low Level TCP/UDP
+- WebSockets
+    - Pusher
+    - Manual Socket Server/Client
+- Distributed
+    - Node Inventory
+    - High Availability
+    - Director/Controller
+    - Client/Server Software for maintaining a connection
+- System
+    - System level commands and scripts
+    - Ansible interface
+    - Bash interface
+- Threaded
+    - Tasks
+        - Repeatable
+        - Delayed
+        - One use
+- Events
