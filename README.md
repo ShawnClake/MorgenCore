@@ -13,18 +13,18 @@
 - Coming Soon
 
 ## Planned Features
-- Communication
+- Communication (Packet, Services, Database) ~2018
     - P2P
     - Centralized
-- Realtime (WebSockets, Packet, Services, Database, Communication)
+- Realtime (WebSockets, Packet, Services, Database, Communication) ~2019
     - P2P
     - Centralized
-- Distributed (Messages, Events, Services, Database, System, Realtime, AHM, Connector)
+- Distributed (Messages, Events, Services, Database, System, Realtime, AHM, Connector) ~2021
     - Node Inventory
     - High Availability
     - Director/Controller
     - Client/Server Software for maintaining a connection
-- UserInterface (IO, Graphics)
+- UserInterface (IO, Graphics) ~2020
 
 ## Modules
 - Connector Server (Events, Database, Threaded)
@@ -37,31 +37,31 @@
 - Cooldown (Events, Services)
 
 ## Planned Modules
-- Stock Market (Events, Messages, Database, Threaded, Services)
+- Stock Market (Events, Messages, Database, Threaded, Services) ~2019
     - View realtime stock market evaluations
     - Create artificial stocks local to the application
-- Currency (Events, Messages, Database, Threaded, Services)
+- Currency (Events, Messages, Database, Threaded, Services) ~2019
     - View realtime currency exchanges
     - Compute an exchange
     - Create artifical currencies local to the application
-- Facebook Accounts (Events, Database, Services)
-- Google Accounts (Events, Database, Services)
-- Steam Accounts (Events, Database, Services)
-- Twitter Accounts (Events, Database, Services)
-- IO (Buffer, Events)
-- AppAPI (Events, HTTP, Services, Database)
+- Facebook Accounts (Events, Database, Services) ~2018
+- Google Accounts (Events, Database, Services) ~2018
+- Steam Accounts (Events, Database, Services) ~2018
+- Twitter Accounts (Events, Database, Services) ~2019
+- IO (Buffer, Events, Messages) ~2018
+- AppAPI (Events, HTTP, Services, Database) ~2019
     - REST API endpoints
-- WebSockets (Events, HTTP, Services, Database, Messages, Threaded)
+- WebSockets (Events, HTTP, Services, Database, Messages, Threaded) ~2019
     - Pusher
     - Manual Socket Server/Client
-- Granular Ticker (Events, Threaded)
-- AHM: Application Health Monitoring (Messages, Events, Services, Database, System, Threaded)
+- Granular Ticker (Events, Threaded) ~2018
+- AHM: Application Health Monitoring (Messages, Events, Services, Database, System, Threaded) ~2020
     - Periodic checks of chosen states in the application to show as health
-- CRUD (Database, Threaded)
-- Graphics (Buffer, Events)
+- CRUD (Database, Threaded) ~2018
+- Graphics (Buffer, Events) ~2019
     - 2D UI Buffer
     - Auto-Sizing Grid-ing
-- Packet (Events, Buffer, Networking, Messages)
+- Packet (Events, Buffer, Networking, Messages) ~2018
 
 ## Components
 - Clone 
@@ -78,34 +78,34 @@
 - Messages
 
 ## Planned Components
-- Events
-- Threaded
+- Events ~2017
+- Threaded ~2018
     - Tasks
         - Repeatable
         - Delayed
         - One use
-- File Interactions
+- File Interactions ~2018
     - YAML, CSV, Text, PDF, Audio, Video
     - Create, Initialize with defaults, read, copy, update, delete
     - Database tracking
     - Versioning
     - Comments where appplicable
-- Directory Interactions
+- Directory Interactions ~2018
     - Create, List, Recursive, Move, Delete, Find/Search, Filters
-- Buffer
+- Buffer ~2018
     - 2D
     - 3D
     - Scrollable
     - Sizable
     - Generic
-- Pagination
-- Logging
-- AI
-- Networking
+- Pagination ~2018
+- Logging ~2017
+- AI ~2020
+- Networking ~2018
     - HTTP
     - Netty
     - TCP/UDP
-- System
+- System ~2017
     - System level commands and scripts
     - Ansible interface
     - Bash interface
