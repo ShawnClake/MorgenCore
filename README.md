@@ -1,19 +1,33 @@
 # MorgenCore
 #### Java library full of misc java functions for use in projects, prototyping, and efficient development
 
+## Lingo
+|    Name   |                                       Summary                                       |         | Depends |           |
+|:---------:|:-----------------------------------------------------------------------------------:|:-------:|:-------:|:---------:|
+|     -     |                                          -                                          | Feature |  Module | Component |
+|  Feature  | Opinionated Frameworks for developing core functionalities in complex applications  |    ✔    |    ✔    |     ✔     |
+|   Module  |    Tools which assist in the creation of custom features in complex applications    |    ✘    |    ✘    |     ✔     |
+| Component |          Low Level utilities which abstract away verbose and skeletal code          |    ✘    |    ✘    |     ✘     |
+
 ## Features
 - Coming Soon
 
 ## Planned Features
-- Distributed (Messages, Events, Services, Database, System, WebSockets, AHM, Connector)
+- Communication
+    - P2P
+    - Centralized
+- Realtime (WebSockets, Packet, Services, Database, Communication)
+    - P2P
+    - Centralized
+- Distributed (Messages, Events, Services, Database, System, Realtime, AHM, Connector)
     - Node Inventory
     - High Availability
     - Director/Controller
     - Client/Server Software for maintaining a connection
-- UserInterface (IO, GUI)
+- UserInterface (IO, Graphics)
 
 ## Modules
-- Connector Server (Events, Database)
+- Connector Server (Events, Database, Threaded)
 - Account (Crypto, Events, Database, Services)
 - Discord (Database, Messages, Events)
 - Commands (Messages, Events, Database, Services)
@@ -37,16 +51,17 @@
 - IO (Buffer, Events)
 - AppAPI (Events, HTTP, Services, Database)
     - REST API endpoints
-- WebSockets (Events, HTTP, Services, Database, Messages)
+- WebSockets (Events, HTTP, Services, Database, Messages, Threaded)
     - Pusher
     - Manual Socket Server/Client
 - Granular Ticker (Events, Threaded)
-- AHM: Application Health Monitoring (Messages, Events, Services, Database, System)
+- AHM: Application Health Monitoring (Messages, Events, Services, Database, System, Threaded)
     - Periodic checks of chosen states in the application to show as health
-- CRUD (Database)
-- GUI (Buffer, Events)
+- CRUD (Database, Threaded)
+- Graphics (Buffer, Events)
     - 2D UI Buffer
     - Auto-Sizing Grid-ing
+- Packet (Events, Buffer, Networking, Messages)
 
 ## Components
 - Clone 
@@ -86,8 +101,10 @@
 - Pagination
 - Logging
 - AI
-- Low Level TCP/UDP
+- Networking
     - HTTP
+    - Netty
+    - TCP/UDP
 - System
     - System level commands and scripts
     - Ansible interface
