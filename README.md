@@ -9,6 +9,36 @@
 |   Module  |    Tools which assist in the creation of custom features in complex applications    |    ✘    |    ✘    |     ✔     |
 | Component |          Low Level utilities which abstract away verbose and skeletal code          |    ✘    |    ✘    |     ✘     |
 
+## Packages
+|       Core      |    Network    |     System    | User Interface |  Integrations |
+|:---------------:|:-------------:|:-------------:|:--------------:|:-------------:|
+|     Account     | Communication | Configuration |  UserInterface |    Discord    |
+|     Commands    |    Realtime   |       IO      |    Graphics    | Interactables |
+|    Inventory    |  Distributed  |      AHM      |     Buffer     |     Stocks    |
+|     Cooldown    |   Connector   |      File     |   Pagination   |    Currency   |
+| Granular Ticker |     AppAPI    |   Directory   |                |    Facebook   |
+|       CRUD      |   WebSockets  |    Logging    |                |     Google    |
+|      Clone      |     Packet    |     System    |                |     Steam     |
+|     Database    |   Networking  |               |                |    Twitter    |
+|    Reflection   |               |               |                |               |
+|     Services    |               |               |                |               |
+|      Crypto     |               |               |                |               |
+|      Costs      |               |               |                |               |
+|     Recipies    |               |               |                |               |
+|    Properties   |               |               |                |               |
+|     UserData    |               |               |                |               |
+|     Messages    |               |               |                |               |
+|      Events     |               |               |                |               |
+|     Threaded    |               |               |                |               |
+|        AI       |               |               |                |               |
+
+## Dependencies
+| Package |  Dependency  |                         Link                         |
+|:-------:|:------------:|:----------------------------------------------------:|
+|   Core  |     SQL2o    |                https://www.sql2o.org/                |
+| Network |     Netty    |                   https://netty.io/                  |
+|         | Rest Express | https://github.com/RestExpress/RestExpress-Archetype |
+
 ## Features
 - Coming Soon
 
