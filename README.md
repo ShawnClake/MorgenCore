@@ -10,34 +10,40 @@
 | Component |          Low Level utilities which abstract away verbose and skeletal code          |    ✘    |    ✘    |     ✘     |
 
 ## Packages
-|       Core      |    Network    |     System    | User Interface |  Integrations |
-|:---------------:|:-------------:|:-------------:|:--------------:|:-------------:|
-|     Account     | Communication | Configuration |  UserInterface |    Discord    |
-|     Commands    |    Realtime   |       IO      |    Graphics    | Interactables |
-|    Inventory    |  Distributed  |      AHM      |     Buffer     |     Stocks    |
-|     Cooldown    |   Connector   |      File     |   Pagination   |    Currency   |
-| Granular Ticker |     AppAPI    |   Directory   |                |    Facebook   |
-|       CRUD      |   WebSockets  |    Logging    |                |     Google    |
-|      Clone      |     Packet    |     System    |                |     Steam     |
-|     Database    |   Networking  |               |                |    Twitter    |
-|    Reflection   |               |               |                |               |
-|     Services    |               |               |                |               |
-|      Crypto     |               |               |                |               |
-|      Costs      |               |               |                |               |
-|     Recipies    |               |               |                |               |
-|    Properties   |               |               |                |               |
-|     UserData    |               |               |                |               |
-|     Messages    |               |               |                |               |
-|      Events     |               |               |                |               |
-|     Threaded    |               |               |                |               |
-|        AI       |               |               |                |               |
+|       Core      |   Core Services  |    Network    |     System    | User Interface |  Integrations |
+|:---------------:|:----------------:|:-------------:|:-------------:|:--------------:|:-------------:|
+|     Account     | Database Service | Communication | Configuration |  UserInterface |    Discord    |
+|     Commands    | Recipies Service |    Realtime   |       IO      |    Graphics    | Interactables |
+|    Inventory    | UserData Service |  Distributed  |      AHM      |     Buffer     |     Stocks    |
+|     Cooldown    |  Logging Service |   Connector   |      File     |   Pagination   |    Currency   |
+| Granular Ticker |  System Service  |     AppAPI    |   Directory   |                |    Facebook   |
+|       CRUD      |  Buffer Service  |   WebSockets  |    Logging    |                |     Google    |
+|      Clone      |                  |     Packet    |     System    |                |     Steam     |
+|     Database    |                  |   Networking  |               |                |    Twitter    |
+|    Reflection   |                  |               |               |                |               |
+|     Services    |                  |               |               |                |               |
+|      Crypto     |                  |               |               |                |               |
+|      Costs      |                  |               |               |                |               |
+|     Recipies    |                  |               |               |                |               |
+|    Properties   |                  |               |               |                |               |
+|     UserData    |                  |               |               |                |               |
+|     Messages    |                  |               |               |                |               |
+|      Events     |                  |               |               |                |               |
+|     Threaded    |                  |               |               |                |               |
+|        AI       |                  |               |               |                |               |
 
 ## Dependencies
-| Package |  Dependency  |                         Link                         |
-|:-------:|:------------:|:----------------------------------------------------:|
-|   Core  |     SQL2o    |                https://www.sql2o.org/                |
-| Network |     Netty    |                   https://netty.io/                  |
-|         | Rest Express | https://github.com/RestExpress/RestExpress-Archetype |
+|    Package   |         Dependency        |                          Link                         |               Justification              |
+|:------------:|:-------------------------:|:-----------------------------------------------------:|:----------------------------------------:|
+|     Core     |           SQL2o           |                 https://www.sql2o.org/                |        Legacy SQL. Less Overhead.        |
+|              |            jOOQ           |                  http://www.jooq.org                  |     Modern SQL w/ DSL. More Overhead.    |
+|              |          Jackson          |          https://github.com/FasterXML/jackson         |               File parsing               |
+|              | Jackson Data Text Formats | https://github.com/FasterXML/jackson-dataformats-text |               Supports YAML              |
+|              |        Documents 4j       |               http://documents4j.com/#/               |              File conversion             |
+|              |      Deep Learning 4j     |         https://deeplearning4j.org/quickstart         |           Neural Network for AI          |
+|    Network   |           Netty           |                   https://netty.io/                   | Low level standardized network functions |
+|              |        Rest Express       |  https://github.com/RestExpress/RestExpress-Archetype |         Rest API on top of Netty         |
+| Integrations |            JDA            |         https://github.com/DV8FromTheWorld/JDA        |          Discord API Abstraction         |
 
 ## Features
 - Coming Soon
