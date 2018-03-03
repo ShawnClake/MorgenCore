@@ -1,10 +1,8 @@
-package com.openrubicon.core.api.utility;
-
-import com.openrubicon.core.api.interfaces.Observeable;
+package com.shawnclake.morgencore.core.component;
 
 import java.util.ArrayList;
 
-public class DynamicPrimitive<T> implements Observeable {
+public class DynamicPrimitive<T> {
 
     // The inputted Property
     private T property;
@@ -40,6 +38,11 @@ public class DynamicPrimitive<T> implements Observeable {
     }
 
     public DynamicPrimitive(String property) {
+        this.setProperty(property);
+    }
+
+    public DynamicPrimitive(String property, boolean eager) {
+        this.eager = eager;
         this.setProperty(property);
     }
 
@@ -162,7 +165,7 @@ public class DynamicPrimitive<T> implements Observeable {
             else if(property instanceof Character)
             {
                 rchar = ((Character)property).charValue();
-                if(Character.getNumericValue(rchar))
+                if(Character.getNumericValue(rchar) == 0)
                     rboolean = false;
                 else
                     rboolean = true;
@@ -180,7 +183,6 @@ public class DynamicPrimitive<T> implements Observeable {
         if(!this.eager)
         {
             if(property == null)
-            {
                 rint = 0;
             else if(property instanceof Number)
             {
@@ -226,7 +228,7 @@ public class DynamicPrimitive<T> implements Observeable {
             else if(property instanceof Character)
             {
                 rchar = ((Character)property).charValue();
-                rshort = Character.getNumericValue(rchar);
+                rshort = (short)Character.getNumericValue(rchar);
             }
 
             else if(property instanceof Boolean)
@@ -411,10 +413,4 @@ public class DynamicPrimitive<T> implements Observeable {
         return rbyte; 
     }
 
-    @Override
-    public ArrayList<String> getObservation() {
-        ArrayList<String> observation = new ArrayList<>();
-        observation.add(this.getProperty().toString());
-        return observation;
-    }
 }
