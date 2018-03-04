@@ -1,5 +1,6 @@
 package com.shawnclake.morgencore.core.component.filesystem;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.charset.Charset;
 import java.nio.file.*;
@@ -12,7 +13,7 @@ public class FileRead {
     private String path;
     private Scanner file;
 
-    private FileRead(String filePath)
+    public FileRead(String filePath)
     {
         path = filePath;
         openFileIn();
@@ -26,28 +27,39 @@ public class FileRead {
 
     public String readLine()
     {
-        if(file.hasNextLine())
-            return file.nextLine();
-        return "";
+        if(file != null) {
+            if (file.hasNextLine())
+                return file.nextLine();
+            return "";
+        }
+        return  "";
     }
 
     public List<String> getEntireFile() throws IOException
     {
-        Path filepath = FileSystems.getDefault().getPath(path);
-        return java.nio.file.Files.readAllLines(filepath, Charset.defaultCharset());
+        File f = new File(path);
+        if(f.exists() && !f.isDirectory())
+        {
+            Path filepath = FileSystems.getDefault().getPath(path);
+            return java.nio.file.Files.readAllLines(filepath, Charset.defaultCharset());
+        }
+
+        return new ArrayList<>();
     }
 
     public List<String> getRemainderOfFile()
     {
+        if(file != null) {
+            List<String> lines = new ArrayList<>();
 
-        List<String> lines = new ArrayList<>();
+            while (file.hasNextLine()) {
+                String line = file.nextLine();
+                lines.add(line);
+            }
 
-        while (file.hasNextLine()) {
-            String line = file.nextLine();
-            lines.add(line);
+            return lines;
         }
-
-        return lines;
+        return new ArrayList<>();
     }
 
     public void forceCloseFile()
@@ -57,20 +69,24 @@ public class FileRead {
 
     private boolean openFileIn()
     {
-        try {
+        File f = new File(path);
+        if(f.exists() && !f.isDirectory()) {
+            try {
 
-            file = new Scanner(Paths.get(path));
+                file = new Scanner(Paths.get(path));
 
+            } catch (IOException e) {
+
+                e.printStackTrace();
+
+                return false;
+
+            }
+            return true;
         }
-        catch (IOException e) {
 
-            e.printStackTrace();
+        return false;
 
-            return false;
-
-        }
-
-        return true;
     }
 
 

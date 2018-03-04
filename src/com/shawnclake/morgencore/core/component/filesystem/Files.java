@@ -32,14 +32,42 @@ public class Files {
 
     public ArrayList<File> listFiles(String directoryName) {
         File directory = new File(directoryName);
-
-        return new ArrayList<>(Collections.toArrayList(directory.listFiles()));
+        if(directory.exists() && directory.isDirectory()) {
+            return new ArrayList<>(Collections.toArrayList(directory.listFiles()));
+        }
+        return new ArrayList<>();
     }
 
     public ArrayList<String> listFileNames(String directoryName) {
         File directory = new File(directoryName);
+        if(directory.exists() && directory.isDirectory()) {
+            return new ArrayList<>(Collections.toArrayList(directory.list()));
+        }
+        return new ArrayList<>();
+    }
 
-        return new ArrayList<>(Collections.toArrayList(directory.list()));
+    public boolean isExist(String path)
+    {
+        File file = new File(path);
+        return file.exists();
+    }
+
+    public boolean isDirectory(String path)
+    {
+        File directory = new File(path);
+        if(directory.exists() && directory.isDirectory()) {
+            return true;
+        }
+        return false;
+    }
+
+    public boolean isFile(String path)
+    {
+        File file = new File(path);
+        if(file.exists() && file.isFile()) {
+            return true;
+        }
+        return false;
     }
 
 }

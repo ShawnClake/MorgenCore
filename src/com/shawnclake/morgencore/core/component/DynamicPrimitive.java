@@ -99,6 +99,18 @@ public class DynamicPrimitive<T> {
             rchar = (char)rint;
         }
 
+        else if(property instanceof String)
+        {
+            rint = Integer.parseInt((String)property);
+            rbyte = Byte.parseByte((String)property);
+            rdouble = Double.parseDouble((String)property);
+            rfloat = Float.parseFloat((String)property);
+            rlong = Long.parseLong((String)property);
+            rshort = Short.parseShort((String)property);
+            rchar = ((String)property).charAt(0);
+            rboolean = Boolean.parseBoolean((String)property);
+        }
+
         else if(property instanceof Number)
         {
             Number propertyNumber = (Number)property;
@@ -162,6 +174,10 @@ public class DynamicPrimitive<T> {
                 else
                     rboolean = true;
             }
+            else if(property instanceof String)
+            {
+                rboolean = Boolean.parseBoolean((String)property);
+            }
             else if(property instanceof Character)
             {
                 rchar = ((Character)property).charValue();
@@ -172,8 +188,8 @@ public class DynamicPrimitive<T> {
             }
             else if(property instanceof Boolean)
                 rboolean = ((Boolean)property).booleanValue();
-                
-            rboolean =  false;
+            else
+                rboolean =  false;
         }
         
         return rboolean;
@@ -184,6 +200,10 @@ public class DynamicPrimitive<T> {
         {
             if(property == null)
                 rint = 0;
+            else if(property instanceof String)
+            {
+                rint = Integer.parseInt((String)property);
+            }
             else if(property instanceof Number)
             {
                 Number propertyNumber = (Number)property;
@@ -203,8 +223,8 @@ public class DynamicPrimitive<T> {
                 else
                     rint = 0;
             }
-            
-            rint = 0;
+            else
+                rint = 0;
         
         }
         
@@ -218,7 +238,10 @@ public class DynamicPrimitive<T> {
             {
                 rshort = 0;
             }
-
+            else if(property instanceof String)
+            {
+                rshort = Short.parseShort((String)property);
+            }
             else if(property instanceof Number)
             {
                 Number propertyNumber = (Number)property;
@@ -239,8 +262,8 @@ public class DynamicPrimitive<T> {
                 else
                     rshort = 0;
             }
-
-            rshort = 0;
+            else
+                rshort = 0;
         
         }
    
@@ -254,7 +277,10 @@ public class DynamicPrimitive<T> {
             {
                 rlong = 0;
             }
-
+            else if(property instanceof String)
+            {
+                rlong = Long.parseLong((String)property);
+            }
             else if(property instanceof Number)
             {
                 Number propertyNumber = (Number)property;
@@ -275,8 +301,8 @@ public class DynamicPrimitive<T> {
                 else
                     rlong = 0;
             }
-            
-            rlong = 0;
+            else
+                rlong = 0;
         
         }
         return rlong; 
@@ -289,7 +315,10 @@ public class DynamicPrimitive<T> {
             {
                 rfloat = 0f;
             }
-
+            else if(property instanceof String)
+            {
+                rfloat = Float.parseFloat((String)property);
+            }
             else if(property instanceof Number)
             {
                 Number propertyNumber = (Number)property;
@@ -310,8 +339,8 @@ public class DynamicPrimitive<T> {
                 else
                     rfloat = 0f;
             }
-            
-            rfloat = 0f;
+            else
+                rfloat = 0f;
         
         }
         return rfloat;     
@@ -325,7 +354,10 @@ public class DynamicPrimitive<T> {
             {
                 rdouble = 0.;
             }
-
+            else if(property instanceof String)
+            {
+                rdouble = Double.parseDouble((String)property);
+            }
             else if(property instanceof Number)
             {
                 Number propertyNumber = (Number)property;
@@ -346,8 +378,8 @@ public class DynamicPrimitive<T> {
                 else
                     rdouble = 0.;
             }
-            
-            rdouble = 0.;
+            else
+                rdouble = 0.;
         
         }
     
@@ -359,6 +391,10 @@ public class DynamicPrimitive<T> {
         {
             if(property == null)
                 rchar = (char)0;
+            else if(property instanceof String)
+            {
+                rchar = ((String)property).charAt(0);
+            }
             else if(property instanceof Number)
             {
                 Number propertyNumber = (Number)property;
@@ -378,8 +414,8 @@ public class DynamicPrimitive<T> {
                 else
                     rchar = (char)0;
             }
-            
-            rchar = (char)0;
+            else
+                rchar = (char)0;
         }
         return rchar; 
     }
@@ -389,6 +425,10 @@ public class DynamicPrimitive<T> {
         {
             if(property == null)
                 rbyte = (byte)0;
+            else if(property instanceof String)
+            {
+                rbyte = Byte.parseByte((String)property);
+            }
             else if(property instanceof Number)
             {
                 Number propertyNumber = (Number)property;
@@ -407,8 +447,8 @@ public class DynamicPrimitive<T> {
                 else
                     rbyte = (byte)0;
             }
-
-            rbyte = (byte)0;
+            else
+                rbyte = (byte)0;
         }
         return rbyte; 
     }
