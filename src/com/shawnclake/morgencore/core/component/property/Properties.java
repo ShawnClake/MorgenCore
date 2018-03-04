@@ -4,6 +4,9 @@ import com.shawnclake.morgencore.core.component.DynamicPrimitive;
 
 import java.util.HashMap;
 
+// TODO: serialize and unserialize properties to save strings
+// TODO: encrypt/decrypt serialized strings
+
 public class Properties {
 
     private HashMap<String, DynamicPrimitive> properties = new HashMap<>();

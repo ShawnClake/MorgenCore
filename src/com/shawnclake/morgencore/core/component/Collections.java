@@ -39,4 +39,14 @@ public class Collections {
         return new ArrayList<T>(Arrays.asList(arr));
     }
 
+    public static <T> List<T> toList(T arr)
+    {
+        return Arrays.asList(arr);
+    }
+
+    public static <T> ArrayList<T> toArrayList(T arr)
+    {
+        return new ArrayList<T>(Arrays.asList(arr));
+    }
+
 }

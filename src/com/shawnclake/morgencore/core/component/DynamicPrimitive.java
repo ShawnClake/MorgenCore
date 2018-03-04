@@ -1,7 +1,5 @@
 package com.shawnclake.morgencore.core.component;
 
-import java.util.ArrayList;
-
 public class DynamicPrimitive<T> {
 
     // The inputted Property
@@ -16,6 +14,9 @@ public class DynamicPrimitive<T> {
     private byte rbyte;
     private short rshort;
     private boolean rboolean;
+
+    private boolean rintOverflow = false;
+    private boolean rbyteOverflow = false;
     
     // Eager load the primitives
     // Default to lazy for run time reasons
@@ -54,6 +55,8 @@ public class DynamicPrimitive<T> {
         if(property == null)
         {
             this.property = null;
+            if(this.eager)
+                this.setPrim();
         }
         else
         {
@@ -77,16 +80,17 @@ public class DynamicPrimitive<T> {
                 this.changeProperty((T)property);
         }
 
-        if(this.eager)
-          this.setPrim();
+
     }
 
     protected void changeProperty(T prop)
     {
         this.property = prop;
+        if(this.eager)
+            this.setPrim();
     }
 
-    public void setPrim()
+    protected void setPrim()
     {
         if(property == null)
         {
@@ -97,41 +101,79 @@ public class DynamicPrimitive<T> {
             rlong = rint;
             rshort = (short)rint;
             rchar = (char)rint;
+            rboolean = false;
         }
 
         else if(property instanceof String)
         {
-            rint = Integer.parseInt((String)property);
-            rbyte = Byte.parseByte((String)property);
-            rdouble = Double.parseDouble((String)property);
-            rfloat = Float.parseFloat((String)property);
-            rlong = Long.parseLong((String)property);
-            rshort = Short.parseShort((String)property);
+            if(Numbers.isNumeric((String)property))
+            {
+                rint = Integer.parseInt((String)property);
+                rdouble = Double.parseDouble((String)property);
+                rfloat = Float.parseFloat((String)property);
+                rlong = Long.parseLong((String)property);
+                rshort = Short.parseShort((String)property);
+            }
+
             rchar = ((String)property).charAt(0);
-            rboolean = Boolean.parseBoolean((String)property);
+
+            rbyte = (byte)(((String)property).charAt(0));
+
+            String lowercase = ((String)property).toLowerCase();
+            rboolean = Boolean.parseBoolean(lowercase);
         }
 
         else if(property instanceof Number)
         {
             Number propertyNumber = (Number)property;
             rint = propertyNumber.intValue();
-            rbyte = propertyNumber.byteValue();
+            if(rint > Byte.MAX_VALUE) {
+                rbyte = 0;
+                rbyteOverflow = true;
+            }
+            else if(rint < Byte.MIN_VALUE)
+            {
+                rbyte = 0;
+                rbyteOverflow = true;
+            }
+            else
+                rbyte = propertyNumber.byteValue();
             rdouble = propertyNumber.doubleValue();
             rfloat = propertyNumber.floatValue();
             rlong = propertyNumber.longValue();
             rshort = propertyNumber.shortValue();
             rchar = (char)rint;
+
+            if(rint == 0)
+                rboolean = false;
+            else
+                rboolean = true;
         }
 
         else if(property instanceof Character)
         {
             rchar = ((Character)property).charValue();
             rint = Character.getNumericValue(rchar);
-            rbyte = (byte)rint;
+            if(rint > Byte.MAX_VALUE) {
+                rbyte = 0;
+                rbyteOverflow = true;
+            }
+            else if(rint < Byte.MIN_VALUE)
+            {
+                rbyte = 0;
+                rbyteOverflow = true;
+            }
+            else
+                rbyte = (byte)rint;
             rdouble = rint;
             rfloat = rint;
             rlong = rint;
             rshort = (short)rint;
+
+            if(rint == 0)
+                rboolean = false;
+            else
+                rboolean = true;
         }
 
         else if(property instanceof Boolean)
@@ -141,6 +183,7 @@ public class DynamicPrimitive<T> {
                 rint = 1;
             else
                 rint = 0;
+
             rbyte = (byte)rint;
             rdouble = rint;
             rfloat = rint;
@@ -149,10 +192,7 @@ public class DynamicPrimitive<T> {
             rchar = (char)rint;
         }
 
-        if(rint == 0 || this.property == null)
-            rboolean = false;
-        else
-            rboolean = true;
+
     }
 
     public String getString()
@@ -427,12 +467,28 @@ public class DynamicPrimitive<T> {
                 rbyte = (byte)0;
             else if(property instanceof String)
             {
-                rbyte = Byte.parseByte((String)property);
+                if(Integer.parseInt((String)property) > Byte.MAX_VALUE)
+                {
+                    rbyte = 0;
+                    rbyteOverflow = true;
+                }
+                else
+                    rbyte = Byte.parseByte((String)property);
             }
             else if(property instanceof Number)
             {
                 Number propertyNumber = (Number)property;
-                rbyte = propertyNumber.byteValue();
+                if(propertyNumber.intValue() > Byte.MAX_VALUE) {
+                    rbyte = 0;
+                    rbyteOverflow = true;
+                }
+                else if(propertyNumber.intValue() < Byte.MIN_VALUE)
+                {
+                    rbyte = 0;
+                    rbyteOverflow = true;
+                }
+                else
+                    rbyte = propertyNumber.byteValue();
             }
             else if(property instanceof Character)
             {
