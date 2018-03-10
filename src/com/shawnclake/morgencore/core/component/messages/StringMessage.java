@@ -2,6 +2,10 @@ package com.shawnclake.morgencore.core.component.messages;
 
 import java.util.Date;
 
+/**
+ * StringMessage
+ * Simplistic message interface of a single string
+ */
 public class StringMessage implements Message {
 
     private String message;

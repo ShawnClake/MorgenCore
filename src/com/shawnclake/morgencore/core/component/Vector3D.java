@@ -1,5 +1,8 @@
 package com.shawnclake.morgencore.core.component;
 
+/**
+ * 3 dimensional vector (x,y,z)
+ */
 public class Vector3D extends Vector2D {
 
     private float z;

@@ -1,5 +1,15 @@
 package com.shawnclake.morgencore.core.component;
 
+/**
+ * Allows the storing of T type properties in a fixed wrapper
+ * Supports: all primitives, string, any object
+ * Eager loading will do all the possible conversions upon setting a property into the class
+ *     - This is expensive and should be avoided unless nesseccary
+ * NOTE: It is the developers responsibility to ensure the type they are setting in here is the type they are returning.
+ *
+ * todo: fix overflow cases
+ * @param <T>
+ */
 public class DynamicPrimitive<T> {
 
     // The inputted Property
@@ -51,6 +61,16 @@ public class DynamicPrimitive<T> {
         return property;
     }
 
+    @SuppressWarnings("unchecked")
+    public <Z> Z getProperty(Class<Z> returnType) {
+        return (Z)(property);
+    }
+
+    /**
+     * Takes a string and tries to set it by first checking if it is a primitive and if not will generally set it
+     * @param property
+     */
+    @SuppressWarnings("unchecked")
     public void setProperty(String property) {
         if(property == null)
         {
@@ -83,6 +103,10 @@ public class DynamicPrimitive<T> {
 
     }
 
+    /**
+     * Sets a property and will eager load if eager load has been set to true manually
+     * @param prop
+     */
     protected void changeProperty(T prop)
     {
         this.property = prop;
@@ -90,6 +114,9 @@ public class DynamicPrimitive<T> {
             this.setPrim();
     }
 
+    /**
+     * Eager loads all the primitive holders with values
+     */
     protected void setPrim()
     {
         if(property == null)
@@ -195,11 +222,20 @@ public class DynamicPrimitive<T> {
 
     }
 
+    /**
+     * Tries to return the property as a string
+     * @return
+     */
     public String getString()
     {
         return this.getProperty().toString();
     }
 
+    /**
+     * Returns the boolean primitive.
+     * Will do the conversion if eager is disabled (default)
+     * @return
+     */
     public boolean getBoolean()
     {
         if(!this.eager)
@@ -235,6 +271,11 @@ public class DynamicPrimitive<T> {
         return rboolean;
     }
 
+    /**
+     * Returns the int primitive.
+     * Will do the conversion if eager is disabled (default)
+     * @return
+     */
     public int getInt() { 
         if(!this.eager)
         {
@@ -271,6 +312,11 @@ public class DynamicPrimitive<T> {
         return rint;     
     }
 
+    /**
+     * Returns the short primitive.
+     * Will do the conversion if eager is disabled (default)
+     * @return
+     */
     public short getShort() { 
         if(!this.eager)
         {
@@ -310,6 +356,11 @@ public class DynamicPrimitive<T> {
         return rshort; 
     }
 
+    /**
+     * Returns the long primitive.
+     * Will do the conversion if eager is disabled (default)
+     * @return
+     */
     public long getLong() { 
         if(!this.eager)
         {
@@ -348,6 +399,11 @@ public class DynamicPrimitive<T> {
         return rlong; 
     }
 
+    /**
+     * Returns the float primitive.
+     * Will do the conversion if eager is disabled (default)
+     * @return
+     */
     public float getFloat() { 
         if(!this.eager)
         {
@@ -386,6 +442,11 @@ public class DynamicPrimitive<T> {
         return rfloat;     
     }
 
+    /**
+     * Returns the double primitive.
+     * Will do the conversion if eager is disabled (default)
+     * @return
+     */
     public double getDouble() { 
     
         if(!this.eager)
@@ -426,6 +487,11 @@ public class DynamicPrimitive<T> {
         return rdouble; 
     }
 
+    /**
+     * Returns the char primitive.
+     * Will do the conversion if eager is disabled (default)
+     * @return
+     */
     public char getChar() { 
         if(!this.eager)
         {
@@ -460,6 +526,11 @@ public class DynamicPrimitive<T> {
         return rchar; 
     }
 
+    /**
+     * Returns the byte primitive.
+     * Will do the conversion if eager is disabled (default)
+     * @return
+     */
     public byte getByte() { 
         if(!this.eager)
         {

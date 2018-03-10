@@ -11,8 +11,19 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 
+/**
+ * Files
+ * Helps us with observing directories of files or data about a file
+ * Does not read/write files
+ */
 public class Files {
 
+    /**
+     * List all files within a dir recursively
+     * This is a recursion helper
+     * @param directoryName
+     * @param files
+     */
     private void listFilesRecursivelyHelper(String directoryName, ArrayList<File> files) {
         File directory = new File(directoryName);
 
@@ -27,6 +38,11 @@ public class Files {
         }
     }
 
+    /**
+     * List all files within a dir recursively
+     * @param directoryName
+     * @return
+     */
     public ArrayList<File> listFilesRecursively(String directoryName) {
 
         ArrayList<File> files = new ArrayList<>();
@@ -36,6 +52,11 @@ public class Files {
         return files;
     }
 
+    /**
+     * Returns only the top level files including directories within a directory
+     * @param directoryName
+     * @return
+     */
     public ArrayList<File> listFiles(String directoryName) {
         File directory = new File(directoryName);
         if(directory.exists() && directory.isDirectory()) {
@@ -44,6 +65,11 @@ public class Files {
         return new ArrayList<>();
     }
 
+    /**
+     * Return only the top level file/directory names within a directory
+     * @param directoryName
+     * @return
+     */
     public ArrayList<String> listFileNames(String directoryName) {
         File directory = new File(directoryName);
         if(directory.exists() && directory.isDirectory()) {
@@ -52,6 +78,11 @@ public class Files {
         return new ArrayList<>();
     }
 
+    /**
+     * Returns only the top level files including directories within a directory
+     * @param directory
+     * @return
+     */
     public ArrayList<File> listFiles(File directory) {
         if(directory.exists() && directory.isDirectory()) {
             return new ArrayList<>(Collections.toArrayList(directory.listFiles()));
@@ -59,6 +90,11 @@ public class Files {
         return new ArrayList<>();
     }
 
+    /**
+     * Return only the top level file/directory names within a directory
+     * @param directory
+     * @return
+     */
     public ArrayList<String> listFileNames(File directory) {
         if(directory.exists() && directory.isDirectory()) {
             return new ArrayList<>(Collections.toArrayList(directory.list()));
@@ -66,12 +102,22 @@ public class Files {
         return new ArrayList<>();
     }
 
+    /**
+     * Determine whether a file exists at the provided path
+     * @param path
+     * @return
+     */
     public boolean isExist(String path)
     {
         File file = new File(path);
         return file.exists();
     }
 
+    /**
+     * Returns whether the supplied path ends in a dir
+     * @param path
+     * @return
+     */
     public boolean isDirectory(String path)
     {
         File directory = new File(path);
@@ -81,6 +127,11 @@ public class Files {
         return false;
     }
 
+    /**
+     * Determines whether the supplied path ends in a file
+     * @param path
+     * @return
+     */
     public boolean isFile(String path)
     {
         File file = new File(path);
@@ -90,6 +141,14 @@ public class Files {
         return false;
     }
 
+    /**
+     * Gets the file extensions for a supplied file
+     * When includeDot is true, the returned extension will be in the form ".exe"
+     * When it is instead false, it will return in the form "exe"
+     * @param file
+     * @param includeDot
+     * @return
+     */
     public String getFileExtension(File file, boolean includeDot) {
         String name = file.getName();
         try {
@@ -102,6 +161,11 @@ public class Files {
         }
     }
 
+    /**
+     * Creates a directory at the given path
+     * @param path
+     * @return
+     */
     public boolean createDirectory(String path)
     {
         try {
@@ -114,6 +178,11 @@ public class Files {
         return true;
     }
 
+    /**
+     * Creates an empty file at the given path
+     * @param path
+     * @return
+     */
     public boolean createFile(String path)
     {
         try {
@@ -126,6 +195,13 @@ public class Files {
         return true;
     }
 
+    /**
+     * Creates a file with the supplied content at the given path
+     * Uses UTF_8
+     * @param path
+     * @param content
+     * @return
+     */
     public boolean createFile(String path, String content)
     {
 
@@ -139,6 +215,14 @@ public class Files {
         return true;
     }
 
+    /**
+     * Creates a file with the supplied content at the given path
+     * Uses supplied encoding
+     * @param path
+     * @param content
+     * @param encoding
+     * @return
+     */
     public boolean createFile(String path, String content, Charset encoding)
     {
         try {
@@ -151,6 +235,14 @@ public class Files {
         return true;
     }
 
+    /**
+     * Creates a file with the supplied content at the given path
+     * Each entry in the array list will be a new line in the file
+     * Uses UTF_8
+     * @param path
+     * @param content
+     * @return
+     */
     public boolean createFile(String path, ArrayList<String> content)
     {
         try {
@@ -163,6 +255,15 @@ public class Files {
         return true;
     }
 
+    /**
+     * Creates a file with the supplied content at the given path
+     * Each entry in the array list will be a new line in the file
+     * Uses supplied encoding
+     * @param path
+     * @param content
+     * @param encoding
+     * @return
+     */
     public boolean createFile(String path, ArrayList<String> content, Charset encoding)
     {
         try {
@@ -175,27 +276,59 @@ public class Files {
         return true;
     }
 
+    /**
+     * Creates a file with the supplied content at the given path
+     * Will use UTF_8
+     * @param path
+     * @param content
+     * @return
+     */
     public boolean createFile(String path, StringMessage content)
     {
         return this.createFile(path, content.getMessage());
     }
 
+    /**
+     * Creates a file with the supplied content at the given path
+     * Uses supplied encoding
+     * @param path
+     * @param content
+     * @param encoding
+     * @return
+     */
     public boolean createFile(String path, StringMessage content, Charset encoding)
     {
         return this.createFile(path, content.getMessage(), encoding);
     }
 
+    /**
+     * Creates a file with the supplied content at the given path
+     * Will use UTF_8
+     * @param path
+     * @param content
+     * @return
+     */
     public boolean createFile(String path, ListMessage content)
     {
         return this.createFile(path, content.getMessage());
     }
 
+    /**
+     * Creates a file with the supplied content at the given path
+     * Uses supplied encoding
+     * @param path
+     * @param content
+     * @param encoding
+     * @return
+     */
     public boolean createFile(String path, ListMessage content, Charset encoding)
     {
         return this.createFile(path, content.getMessage(), encoding);
     }
 
     /**
+     * Removes any and all files/dirs at a given path not including itself. Empties the given path in other words
+     * Recursive helper
      * Taken from ChrisB's answer on
      * https://stackoverflow.com/questions/13195797/delete-all-files-in-directory-but-not-directory-one-liner-solution
      * @param dir
@@ -207,6 +340,10 @@ public class Files {
         }
     }
 
+    /**
+     * Removes any and all files/dirs at a given path not including itself. Empties the given path in other words
+     * @param path
+     */
     public void purgeDirectory(String path) {
         File file = new File(path);
         this.purgeDirectoryHelper(file);

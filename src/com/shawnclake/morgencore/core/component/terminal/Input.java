@@ -2,6 +2,10 @@ package com.shawnclake.morgencore.core.component.terminal;
 
 import java.util.Scanner;
 
+/**
+ * Input class
+ * Helps with scanning for user input from the CLI
+ */
 public class Input {
 
     private static Scanner scanner;

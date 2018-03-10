@@ -9,6 +9,9 @@ import java.security.spec.InvalidKeySpecException;
 
 /**
  * PBKDF2 Password Hashing Class
+ *
+ * Creates strong password hashes and can verify plaintext again these hashes for logging in
+ *
  * @author https://gist.github.com/jtan189/3804290
  * Modified and maintained by Shawn Clake
  */

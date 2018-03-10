@@ -8,6 +8,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ * FileRead
+ * Helps with reading of files
+ */
 public class FileRead {
 
     private String path;
@@ -25,6 +29,10 @@ public class FileRead {
         return openFileIn();
     }
 
+    /**
+     * Reads the next line and returns it as a string
+     * @return
+     */
     public String readLine()
     {
         if(file != null) {
@@ -35,6 +43,12 @@ public class FileRead {
         return  "";
     }
 
+    /**
+     * Returns the entire file as an array list where each entry in the array list is a line
+     * from the file
+     * @return
+     * @throws IOException
+     */
     public List<String> getEntireFile() throws IOException
     {
         File f = new File(path);
@@ -47,6 +61,11 @@ public class FileRead {
         return new ArrayList<>();
     }
 
+    /**
+     * Gets the rest of the file that needs to be read and returns it as an array list where each entry
+     * is a line from the file
+     * @return
+     */
     public List<String> getRemainderOfFile()
     {
         if(file != null) {
@@ -62,6 +81,9 @@ public class FileRead {
         return new ArrayList<>();
     }
 
+    /**
+     * Force the file to close
+     */
     public void forceCloseFile()
     {
         file.close();

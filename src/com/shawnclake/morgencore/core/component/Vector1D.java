@@ -1,5 +1,8 @@
 package com.shawnclake.morgencore.core.component;
 
+/**
+ * 1 dimensional vector (x)
+ */
 public class Vector1D {
 
     private float x;

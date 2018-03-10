@@ -1,5 +1,9 @@
 package com.shawnclake.morgencore.core.component;
 
+/**
+ * Contains static constants for commonly grouped symbols such as: brackers, parenthesis, quotes, math, punctuation etc.
+ * Also includes helper functions for determining whether a supplied character is a specific type of character
+ */
 public final class Symbols {
 
     private static String enclosers = "()[]{}<>";

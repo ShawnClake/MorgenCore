@@ -5,6 +5,12 @@ import com.shawnclake.morgencore.core.component.observers.Subject;
 
 import java.util.ArrayList;
 
+/**
+ * Service
+ * Some globally accessible umbrella type
+ * When a service is added or removed, the observers will be notified
+ * todo: fix and complete the observer pattern here
+ */
 abstract public class Service implements Subject {
 
     private ArrayList<Observer> observers = new ArrayList<>();

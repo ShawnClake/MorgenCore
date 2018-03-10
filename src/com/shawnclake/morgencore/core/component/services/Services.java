@@ -2,6 +2,10 @@ package com.shawnclake.morgencore.core.component.services;
 
 import java.util.ArrayList;
 
+/**
+ * Services
+ * Collection of all globally accessible services
+ */
 public class Services {
 
     private ArrayList<Service> services = new ArrayList<>();

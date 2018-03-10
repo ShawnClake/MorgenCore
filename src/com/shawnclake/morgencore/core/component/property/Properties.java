@@ -7,6 +7,12 @@ import java.util.HashMap;
 // TODO: serialize and unserialize properties to save strings
 // TODO: encrypt/decrypt serialized strings
 
+/**
+ * Properties
+ * A key, value relationship
+ * Uses strings as the key and DynamicPrimitives as the value which makes properties
+ * useful for storing many different types of data in one place
+ */
 public class Properties {
 
     private HashMap<String, DynamicPrimitive> properties = new HashMap<>();

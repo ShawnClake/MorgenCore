@@ -2,6 +2,12 @@ package com.shawnclake.morgencore.core.component;
 
 import com.shawnclake.morgencore.core.component.property.Properties;
 
+/**
+ * An opionated properties set
+ * This class is meant to make it easier to quickly set up 1 or 2 result properties,
+ * in particular this is useful when returning from functions with more than one
+ * return type desired
+ */
 public class Results extends Properties {
 
     public Results() {
@@ -56,6 +62,11 @@ public class Results extends Properties {
 
     //
 
+    /**
+     * Adds many main results
+     * @param results
+     * @param <T>
+     */
     private<T> void addManyResults(T... results)
     {
         int i =0;
