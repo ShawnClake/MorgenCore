@@ -1,0 +1,15 @@
+com.shawnclake.morgencore.core.component
+com.shawnclake.morgencore.core.component.crypto
+com.shawnclake.morgencore.core.component.crypto.interfaces
+com.shawnclake.morgencore.core.component.db
+com.shawnclake.morgencore.core.component.db.interfaces
+com.shawnclake.morgencore.core.component.db.migrations
+com.shawnclake.morgencore.core.component.db.models
+com.shawnclake.morgencore.core.component.filesystem
+com.shawnclake.morgencore.core.component.messages
+com.shawnclake.morgencore.core.component.observers
+com.shawnclake.morgencore.core.component.property
+com.shawnclake.morgencore.core.component.reflection
+com.shawnclake.morgencore.core.component.services
+com.shawnclake.morgencore.core.component.terminal
+com.shawnclake.morgencore.system.module.configuration

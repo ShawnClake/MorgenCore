@@ -8,7 +8,7 @@ public class Utilities {
      * Set a specified Field accessible
      *
      * @author InventivetalentDev
-     * @link https://github.com/InventivetalentDev/MenuBuilder/blob/master/src/main/java/org/inventivetalent/menubuilder/util/AccessUtil.java
+     * https://github.com/InventivetalentDev/MenuBuilder/blob/master/src/main/java/org/inventivetalent/menubuilder/util/AccessUtil.java
      *
      * @param f Field set accessible
      * @return <code>true</code> if the field was previously accessible
