@@ -1,6 +1,7 @@
 package com.shawnclake.morgencore.core.component.html.tags;
 
 import com.shawnclake.morgencore.core.component.html.attributes.Attribute;
+import com.shawnclake.morgencore.core.component.html.components.BaseComponent;
 
 import javax.swing.text.html.HTML;
 
@@ -33,6 +34,11 @@ public class TagBuilder {
     public Tag getTag()
     {
         return this.tag;
+    }
+
+    public RenderedTag getFullTag(BaseComponent baseComponent)
+    {
+        return this.tag.getFullTag(baseComponent);
     }
 
     public static TagBuilder build(HTML.Tag tag)

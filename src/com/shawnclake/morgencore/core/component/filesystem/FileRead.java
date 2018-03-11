@@ -47,15 +47,18 @@ public class FileRead {
      * Returns the entire file as an array list where each entry in the array list is a line
      * from the file
      * @return
-     * @throws IOException
      */
-    public List<String> getEntireFile() throws IOException
+    public List<String> getEntireFile() //throws IOException
     {
         File f = new File(path);
         if(f.exists() && !f.isDirectory())
         {
             Path filepath = FileSystems.getDefault().getPath(path);
-            return java.nio.file.Files.readAllLines(filepath, Charset.defaultCharset());
+            try {
+                return java.nio.file.Files.readAllLines(filepath, Charset.defaultCharset());
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
 
         return new ArrayList<>();

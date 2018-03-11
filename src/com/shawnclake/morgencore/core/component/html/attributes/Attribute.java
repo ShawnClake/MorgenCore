@@ -13,6 +13,10 @@ public class Attribute implements Htmlable {
     public Attribute(HTML.Attribute attribute) {
         this.attribute = attribute;
     }
+    public Attribute(HTML.Attribute attribute, String value) {
+        this.attribute = attribute;
+        this.setValue(value);
+    }
 
     public HTML.Attribute getAttribute() {
         return attribute;
