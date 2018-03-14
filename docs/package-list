@@ -9,6 +9,7 @@ com.shawnclake.morgencore.core.component.filesystem
 com.shawnclake.morgencore.core.component.html
 com.shawnclake.morgencore.core.component.html.attributes
 com.shawnclake.morgencore.core.component.html.components
+com.shawnclake.morgencore.core.component.html.dynamic
 com.shawnclake.morgencore.core.component.html.libraries
 com.shawnclake.morgencore.core.component.html.parsing
 com.shawnclake.morgencore.core.component.html.tags

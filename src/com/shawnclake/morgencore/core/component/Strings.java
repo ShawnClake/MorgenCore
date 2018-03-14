@@ -1,5 +1,9 @@
 package com.shawnclake.morgencore.core.component;
 
+import java.util.ArrayList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 /**
  * Helper string methods
  * todo: move the line break regex into the symbols class and then reference it here
@@ -78,5 +82,47 @@ public class Strings {
             }
         }
         return count;
+    }
+
+    /**
+     * Prints to console the occurences of each regex match within a string of text
+     *
+     * Taken from Jean Logeart's answer from
+     * https://stackoverflow.com/questions/8938498/get-the-index-of-a-pattern-in-a-string-using-regex
+     * @param text
+     * @param regex
+     */
+    public static void printMatches(String text, String regex) {
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(text);
+        // Check all occurrences
+        while (matcher.find()) {
+            System.out.print("Start index: " + matcher.start());
+            System.out.print(" End index: " + matcher.end());
+            System.out.println(" Found: " + matcher.group());
+        }
+    }
+
+    /**
+     * Returns all the RegexResult objects for regex matches within a string
+     * @param text
+     * @param regex
+     * @return
+     */
+    public static ArrayList<RegexResult> getMatches(String text, String regex) {
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(text);
+        // Check all occurrences
+
+        ArrayList<RegexResult> results = new ArrayList<>();
+
+        while (matcher.find()) {
+            results.add(new RegexResult(matcher.group(), matcher.start(), matcher.end()));
+            //System.out.print("Start index: " + matcher.start());
+            //System.out.print(" End index: " + matcher.end());
+            //System.out.println(" Found: " + matcher.group());
+        }
+
+        return results;
     }
 }
