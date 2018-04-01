@@ -1,8 +1,7 @@
 package com.shawnclake.morgencore.core.component.filesystem;
 
-import com.shawnclake.morgencore.core.component.Collections;
+import com.shawnclake.morgencore.core.component.collections.Collections;
 import com.shawnclake.morgencore.core.component.messages.ListMessage;
-import com.shawnclake.morgencore.core.component.messages.Message;
 import com.shawnclake.morgencore.core.component.messages.StringMessage;
 
 import java.io.*;

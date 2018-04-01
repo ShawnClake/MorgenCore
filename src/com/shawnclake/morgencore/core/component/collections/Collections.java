@@ -1,9 +1,8 @@
-package com.shawnclake.morgencore.core.component;
+package com.shawnclake.morgencore.core.component.collections;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.List;
+import com.shawnclake.morgencore.core.component.Numbers;
+
+import java.util.*;
 
 /**
  * Helper methods for dealing with various collections
@@ -55,10 +54,10 @@ public class Collections {
      * @param <T>
      * @return
      */
-    public static <T> List<T> toList(T[] arr)
+    /*public static <T> List<T> toList(T[] arr)
     {
         return Arrays.asList(arr);
-    }
+    }*/
 
     /**
      * Converts an array of T type objects to an array list of T type objects
@@ -83,6 +82,17 @@ public class Collections {
     }
 
     /**
+     * Converts a single T type object to a list of T type
+     * @param arr
+     * @param <T>
+     * @return
+     */
+    public static <T> List<T> toList(T... arr)
+    {
+        return Arrays.asList(arr);
+    }
+
+    /**
      * Converts a single T type object to an array list of T type
      * @param arr
      * @param <T>
@@ -92,5 +102,21 @@ public class Collections {
     {
         return new ArrayList<T>(Arrays.asList(arr));
     }
+
+    public static <T> void prefillListNull(ArrayList<T> list, int size)
+    {
+        for (int i = 0; i < size; i++) {
+            list.add(null);
+        }
+    }
+
+    public static <T> void prefillList(ArrayList<T> list, T data, int size)
+    {
+        for (int i = 0; i < size; i++) {
+            list.add(data);
+        }
+    }
+
+
 
 }
