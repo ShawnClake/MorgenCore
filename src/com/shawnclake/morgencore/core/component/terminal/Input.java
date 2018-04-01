@@ -22,6 +22,8 @@ public class Input {
 
     public static String readLine()
     {
+        if(scanner == null)
+            new Input();
         if(scanner.hasNextLine())
             return scanner.nextLine();
 

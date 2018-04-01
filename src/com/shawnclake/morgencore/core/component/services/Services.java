@@ -10,12 +10,26 @@ public class Services {
 
     private ArrayList<Service> services = new ArrayList<>();
 
+    private static Services instance = null;
+
+    protected Services() {
+        // Exists only to defeat instantiation.
+    }
+
+    public static Services instance()
+    {
+        if(instance == null)
+            instance = new Services();
+        return instance;
+    }
+
     public void create(Service service)
     {
         services.add(service);
+        service.doNotify();
     }
 
-    public  boolean contains(Class serviceClass)
+    public boolean contains(Class serviceClass)
     {
         for(Service service : services)
         {
@@ -31,7 +45,7 @@ public class Services {
         return services;
     }
 
-    public <T extends Service> T getSerivce(Class<T> serviceClass)
+    public <T extends Service> T getService(Class<T> serviceClass)
     {
         for(Service service : services)
         {

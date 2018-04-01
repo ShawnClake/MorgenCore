@@ -1,5 +1,7 @@
 package com.shawnclake.morgencore.core.component;
 
+import java.text.NumberFormat;
+import java.text.ParsePosition;
 import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -124,5 +126,52 @@ public class Strings {
         }
 
         return results;
+    }
+
+    /**
+     * Taken from CraigTP's answer on StackOverflow
+     * https://stackoverflow.com/questions/1102891/how-to-check-if-a-string-is-numeric-in-java
+     *
+     * Works for negative and decimal numbers but not international
+     *
+     * @param str
+     * @return
+     */
+    public static boolean isNumericRegex(String str)
+    {
+        return str.matches("-?\\d+(\\.\\d+)?");  //match a number with optional '-' and decimal.
+    }
+
+    /**
+     * Taken from CraigTP's answer on StackOverflow
+     * https://stackoverflow.com/questions/1102891/how-to-check-if-a-string-is-numeric-in-java
+     * @param str
+     * @return
+     */
+    public static boolean isNumericInternational(String str)
+    {
+        try
+        {
+            double d = Double.parseDouble(str);
+        }
+        catch(NumberFormatException nfe)
+        {
+            return false;
+        }
+        return true;
+    }
+
+    /**
+     * Taken from CraigTP's answer on StackOverflow
+     * https://stackoverflow.com/questions/1102891/how-to-check-if-a-string-is-numeric-in-java
+     *
+     * Does not work for numbers that are negative or decimals
+     *
+     * @param str
+     * @return
+     */
+    public static boolean isNumeric(String str)
+    {
+        return str.chars().allMatch( Character::isDigit );
     }
 }
