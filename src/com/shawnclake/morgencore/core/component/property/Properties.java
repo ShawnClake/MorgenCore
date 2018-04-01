@@ -1,6 +1,6 @@
 package com.shawnclake.morgencore.core.component.property;
 
-import com.shawnclake.morgencore.core.component.DynamicPrimitive;
+import com.shawnclake.morgencore.core.component.objects.dynamic.primitives.DynamicPrimitive;
 
 import java.util.HashMap;
 
