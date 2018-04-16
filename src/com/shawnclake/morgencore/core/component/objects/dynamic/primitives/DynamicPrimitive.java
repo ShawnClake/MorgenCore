@@ -58,6 +58,13 @@ abstract public class DynamicPrimitive<T> extends AdvancedObject {
         return this.getProperty().toString();
     }
 
+    @Override
+    public Integer __compare__(Object obj) throws Exception {
+        if(this.getProperty() instanceof AdvancedObject)
+            return ((AdvancedObject) this.getProperty()).__compare__(obj);
+        throw new Exception("Cant call compare on a DynamicPrimitive which is loaded with a value which is not composed of AdvancedObject");
+    }
+
     abstract public int getInt();
     abstract public long getLong();
     abstract public short getShort();
