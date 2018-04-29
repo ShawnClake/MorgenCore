@@ -24,4 +24,56 @@ public class Utilities {
         return f;
     }
 
+    /**
+     * Returns true if the class passed implements the passed interface anywhere in the object chain
+     *
+     * @param clazz
+     * @param theInterface
+     * @return
+     */
+    public static boolean isObjectImplementing(Class<?> clazz, Object theInterface)
+    {
+        return theInterface.getClass().isAssignableFrom(clazz);
+    }
+
+    /**
+     * Returns true if the object passed implements the passed interface anywhere in the object chain
+     *
+     * @param obj
+     * @param theInterface
+     * @return
+     */
+    public static boolean isObjectImplementing(Object obj, Object theInterface)
+    {
+        return theInterface.getClass().isAssignableFrom(obj.getClass());
+    }
+
+    /**
+     * Returns true if the class passed implements the passed interface anywhere in the object chain
+     *
+     * @param clazz
+     * @param theInterface
+     * @return
+     */
+    public static boolean isObjectImplementing(Class<?> clazz, Class<?> theInterface)
+    {
+        return theInterface.isAssignableFrom(clazz);
+    }
+
+    /**
+     * Returns true if the object passed implements the passed interface anywhere in the object chain
+     *
+     * @param obj
+     * @param theInterface
+     * @return
+     */
+    public static boolean isObjectImplementing(Object obj, Class<?> theInterface)
+    {
+        return theInterface.isAssignableFrom(obj.getClass());
+    }
+
+
+
+
+
 }
