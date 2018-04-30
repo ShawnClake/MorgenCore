@@ -17,5 +17,11 @@ class EventsServiceTest {
         EventsService.trigger(new TestEvent2());
         EventsService.registerListener(TestListener2.class);
         EventsService.trigger(new TestEvent());
+
+        EventsSystem eventsSystem = new EventsSystem();
+        eventsSystem.registerListener(new TestListener());
+
+        EventsService.trigger(new TestEvent3(73));
+        eventsSystem.trigger(new TestEvent3(73));
     }
 }

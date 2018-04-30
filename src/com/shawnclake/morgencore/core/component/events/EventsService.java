@@ -1,5 +1,9 @@
 package com.shawnclake.morgencore.core.component.events;
 
+import java.lang.reflect.Method;
+import java.util.ArrayList;
+import java.util.HashMap;
+
 /**
  * Events Service is used to setup a globally accessible event handler system
  *
@@ -54,5 +58,16 @@ public class EventsService {
     public static void trigger(Event eventObj) {
         EventsService eventsService = instance();
         eventsService.eventsSystem.trigger(eventObj);
+    }
+
+    public static void registerEventsSystem(EventsSystem eventsSystem)
+    {
+        for(HashMap<Listener, ArrayList<Method>> event : eventsSystem.listeners.values())
+        {
+            for(Listener listener : event.keySet())
+            {
+                registerListener(listener);
+            }
+        }
     }
 }

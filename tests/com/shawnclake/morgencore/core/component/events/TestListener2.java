@@ -24,4 +24,8 @@ public class TestListener2 implements Listener {
         Output.pln("2 in testevent handler again");
     }
 
+    public void onTestEvent(TestEvent3 e)
+    {
+        Output.pln(e.toString());
+    }
 }
