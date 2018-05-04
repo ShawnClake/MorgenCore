@@ -17,4 +17,5 @@ import java.util.Date;
 public interface Message {
     Interactable getSender();
     Date getCreated_at();
+    String get();
 }

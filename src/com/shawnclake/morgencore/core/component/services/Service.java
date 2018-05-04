@@ -1,9 +1,8 @@
 package com.shawnclake.morgencore.core.component.services;
 
-import com.shawnclake.morgencore.core.component.observers.Observer;
-import com.shawnclake.morgencore.core.component.observers.Subject;
-
-import java.util.ArrayList;
+import com.shawnclake.morgencore.core.component.objects.dynamic.primitives.LazyDynamicPrimitive;
+import com.shawnclake.morgencore.core.component.patterns.observer.Subject;
+import com.shawnclake.morgencore.core.component.property.Properties;
 
 /**
  * Service
@@ -11,22 +10,42 @@ import java.util.ArrayList;
  * When a service is added or removed, the observers will be notified
  * todo: fix and complete the observer pattern here
  */
-abstract public class Service implements Subject {
+abstract public class Service extends Subject {
 
-    private ArrayList<Observer> observers = new ArrayList<>();
-
-    @Override
-    public void addObserver(Observer observer) {
-        this.observers.add(observer);
+    public Service() {
+        if(this.registerAutomatically())
+            Services.instance().register(this);
     }
 
-    @Override
-    public void removeObserver(Observer observer) {
-        this.observers.remove(observer);
+    public Service get()
+    {
+        return Services.instance().get(this.getClass());
     }
 
-    @Override
-    public ArrayList<Observer> getObservers() {
-        return this.observers;
+    protected boolean registerAutomatically()
+    {
+        return true;
     }
+
+    public String getName()
+    {
+        return this.getClass().getSimpleName();
+    }
+
+    public String getFullName()
+    {
+        return this.getClass().getName();
+    }
+
+    public String getDescription()
+    {
+        return "This service has no description";
+    }
+
+    @SuppressWarnings("unchecked")
+    public Properties getStateStatistics()
+    {
+        return new Properties().add("default", new LazyDynamicPrimitive("This Service does not have any state statistics"));
+    }
+
 }
