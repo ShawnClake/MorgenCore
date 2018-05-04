@@ -1,5 +1,7 @@
 package com.shawnclake.morgencore.core.component.messages;
 
+import com.shawnclake.morgencore.core.component.interactables.Interactable;
+
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -14,13 +16,21 @@ public class ListMessage implements Message {
 
     private ArrayList<String> message;
     private Date created_at;
+    private Interactable sender;
 
     public ListMessage(ArrayList<String> message) {
         this.message = message;
         this.created_at = new Date();
     }
 
-    public ListMessage(ArrayList<String> message, Date created_at) {
+    public ListMessage(Interactable sender, ArrayList<String> message) {
+        this.sender = sender;
+        this.message = message;
+        this.created_at = new Date();
+    }
+
+    public ListMessage(Interactable sender, ArrayList<String> message, Date created_at) {
+        this.sender = sender;
         this.message = message;
         this.created_at = created_at;
     }
@@ -33,4 +43,8 @@ public class ListMessage implements Message {
         return created_at;
     }
 
+    @Override
+    public Interactable getSender() {
+        return sender;
+    }
 }

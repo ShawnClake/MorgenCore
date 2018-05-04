@@ -1,5 +1,7 @@
 package com.shawnclake.morgencore.core.component.messages;
 
+import com.shawnclake.morgencore.core.component.interactables.Interactable;
+
 import java.util.Date;
 
 /**
@@ -10,13 +12,21 @@ public class StringMessage implements Message {
 
     private String message;
     private Date created_at;
+    private Interactable sender;
 
     public StringMessage(String message) {
         this.message = message;
         this.created_at = new Date();
     }
 
-    public StringMessage(String message, Date created_at) {
+    public StringMessage(Interactable sender, String message) {
+        this.sender = sender;
+        this.message = message;
+        this.created_at = new Date();
+    }
+
+    public StringMessage(Interactable sender, String message, Date created_at) {
+        this.sender = sender;
         this.message = message;
         this.created_at = created_at;
     }
@@ -27,6 +37,11 @@ public class StringMessage implements Message {
 
     public Date getCreated_at() {
         return created_at;
+    }
+
+    @Override
+    public Interactable getSender() {
+        return sender;
     }
 
 }

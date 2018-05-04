@@ -1,5 +1,7 @@
 package com.shawnclake.morgencore.core.component.messages;
 
+import com.shawnclake.morgencore.core.component.interactables.Interactable;
+
 import java.util.Date;
 
 /**
@@ -13,5 +15,6 @@ import java.util.Date;
  *  - A wrapper between a database model and business logic
  */
 public interface Message {
+    Interactable getSender();
     Date getCreated_at();
 }
