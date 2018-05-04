@@ -11,7 +11,60 @@
 |   Module  |    Tools which assist in the creation of custom features in complex applications    |    ✘    |    ✘    |     ✔     |
 | Component |          Low Level utilities which abstract away verbose and skeletal code          |    ✘    |    ✘    |     ✘     |
 
-## Packages
+## Implemented (As of April 2018)
+* Vectors - 35%
+    * Still needs matrix calculation support
+    * 1D, 2D, 3D, and some helper utilities
+* Symbols - Requires Refactoring
+* Strings - 40%
+    * Needs additional helper methods to fill out the class
+* Results - 70%
+    * Methods need renaming
+    * Better commenting
+    * Move methods to better places
+* Properties - Needs refactor
+    * Needs to extend AdvancedObject
+* RegexResult - Needs Refactor
+    * Needs to extend Results
+    * Needs commenting/better variable naming
+* Priority - Needs refactor
+    * Needs to extend AdvancedEnum in order to extend
+* Numbers - 60%
+    * Needs more helper methods to fill out the class
+    * Needs better variable naming
+    * Needs more robust documentation
+* MetaData - 85%
+    * Needs more robust documentation
+* Mail - 1%
+    * Needs implementation
+* Helpers - Needs Removal
+* Terminal - 10%
+    * Needs far more helper methods for terminal IO
+    * Center text, print lists etc.
+* Services - 90%
+    * Needs to utilize the new Observer pattern
+    * Services needs far more documentation and better method naming
+* Reflection - 40%
+    * Needs more helper methods
+* Objects - 60%
+    * PrimitiveConverter needs more documentation and exceptions when conversion fails
+    * Some of the advanced primitives still need implementations
+* Libraries - 50%
+    * More documentation
+    * More library types
+* FileSystem - Needs Refactor
+* DB - 55%
+    * Needs more query builder
+    * Needs more documentation
+    * Needs better class naming
+* Crypto - 10%
+    * Needs more supported algorithms
+    * Needs a consistent interface for encrypting/decrypting
+* Collections - 10%
+    * Needs far more implementation
+
+
+## Planned Packages (As of 2017)
 |       Core      |   Core Services  |    Network    |     System    | User Interface |  Integrations |
 |:---------------:|:----------------:|:-------------:|:-------------:|:--------------:|:-------------:|
 |     Account     | Database Service | Communication | Configuration |  UserInterface |    Discord    |
