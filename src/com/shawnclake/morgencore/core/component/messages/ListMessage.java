@@ -39,6 +39,16 @@ public class ListMessage implements Message {
         return message;
     }
 
+    @Override
+    public String get() {
+        String str = "";
+        for(String line : message)
+        {
+            str += line + "\n";
+        }
+        return str;
+    }
+
     public Date getCreated_at() {
         return created_at;
     }

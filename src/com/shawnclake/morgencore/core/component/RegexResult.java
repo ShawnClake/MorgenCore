@@ -1,45 +1,37 @@
 package com.shawnclake.morgencore.core.component;
 
-public class RegexResult {
-
-    private String match;
-
-    private int start;
-
-    private int end;
-
-    private int length;
+public class RegexResult extends Results {
 
     public RegexResult(String match) {
-        this.match = match;
+        this.addResult("match", match);
     }
 
     public RegexResult(String match, int start) {
-        this.start = start;
-        this.match = match;
+        this.addResult("start", start);
+        this.addResult("match", match);
     }
 
     public RegexResult(String match, int start, int end) {
-        this.match = match;
-        this.start = start;
-        this.end = end;
+        this.addResult("match", match);
+        this.addResult("start", start);
+        this.addResult("end", end);
 
-        this.length = end - start;
+        this.addResult("length", end - start);
     }
 
     public String getMatch() {
-        return match;
+        return this.getResult("match").__str__();
     }
 
     public int getStart() {
-        return start;
+        return this.getResult("start").getInt();
     }
 
     public int getEnd() {
-        return end;
+        return this.getResult("end").getInt();
     }
 
     public int getLength() {
-        return length;
+        return this.getResult("length").getInt();
     }
 }

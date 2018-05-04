@@ -29,6 +29,7 @@ abstract public class DynamicPrimitive<T> extends AdvancedObject {
         this.load();
     }
 
+    @SuppressWarnings("unchecked")
     public DynamicPrimitive(T property) {
         this.value = property;
         this.load();
@@ -40,7 +41,7 @@ abstract public class DynamicPrimitive<T> extends AdvancedObject {
 
     @SuppressWarnings("unchecked")
     public <Z> Z getProperty(Class<Z> returnType) {
-        return (Z)(value);
+        return (Z)value;
     }
 
     /**

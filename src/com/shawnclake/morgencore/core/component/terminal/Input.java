@@ -1,5 +1,9 @@
 package com.shawnclake.morgencore.core.component.terminal;
 
+import com.shawnclake.morgencore.core.component.messages.Message;
+
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
 import java.util.Scanner;
 
 /**
@@ -28,6 +32,29 @@ public class Input {
             return scanner.nextLine();
 
         return "";
+    }
+
+    public static Message readLine(TerminalInteractable terminalInteractable)
+    {
+        if(scanner == null)
+            new Input();
+        if(scanner.hasNextLine())
+            return terminalInteractable.input(scanner.nextLine());
+
+        //Output.pln("should not reach");
+
+        return terminalInteractable.input("");
+    }
+
+    public static void stopSimulating()
+    {
+        scanner = new Scanner(System.in);
+    }
+
+    public static void simulateInput(String input)
+    {
+        InputStream in = new ByteArrayInputStream(input.getBytes());
+        scanner = new Scanner(in);
     }
 
 }

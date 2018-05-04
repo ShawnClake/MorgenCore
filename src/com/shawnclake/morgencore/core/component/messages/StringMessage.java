@@ -35,6 +35,11 @@ public class StringMessage implements Message {
         return message;
     }
 
+    @Override
+    public String get() {
+        return this.getMessage();
+    }
+
     public Date getCreated_at() {
         return created_at;
     }

@@ -32,4 +32,9 @@ public class AdvancedObject {
         throw new Exception("Compare is not implemented on this object");
     }
 
+    public String __json__()
+    {
+        return this.__str__();
+    }
+
 }

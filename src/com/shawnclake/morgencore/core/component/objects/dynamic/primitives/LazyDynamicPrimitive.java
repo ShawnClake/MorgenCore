@@ -12,6 +12,7 @@ public class LazyDynamicPrimitive<T> extends DynamicPrimitive<T> {
     public LazyDynamicPrimitive() {
     }
 
+    @SuppressWarnings("unchecked")
     public LazyDynamicPrimitive(T property) {
         super(property);
     }

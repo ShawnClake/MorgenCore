@@ -1,5 +1,9 @@
 package com.shawnclake.morgencore.core.component.events;
 
+import com.shawnclake.morgencore.core.component.objects.dynamic.primitives.LazyDynamicPrimitive;
+import com.shawnclake.morgencore.core.component.property.Properties;
+import com.shawnclake.morgencore.core.component.services.Service;
+
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -24,43 +28,23 @@ import java.util.HashMap;
  * This means all events will be able to hooked in to regardless of where/why. This may not be desirable behaviour.
  *
  */
-public class EventsService {
-
-    private static EventsService instance = null; // Singleton instance
+public class EventsService extends Service {
 
     private EventsSystem eventsSystem = new EventsSystem();
 
-    protected EventsService() {
-        // Exists only to defeat instantiation.
+    public void registerListener(Class<?> listener) {
+        eventsSystem.registerListener(listener);
     }
 
-    /**
-     * Returns the singleton instance
-     * @return
-     */
-    public static EventsService instance()
-    {
-        if(instance == null)
-            instance = new EventsService();
-        return instance;
+    public void registerListener(Listener listener) {
+        eventsSystem.registerListener(listener);
     }
 
-    public static void registerListener(Class<?> listener) {
-        EventsService eventsService = instance();
-        eventsService.eventsSystem.registerListener(listener);
+    public void trigger(Event eventObj) {
+        eventsSystem.trigger(eventObj);
     }
 
-    public static void registerListener(Listener listener) {
-        EventsService eventsService = instance();
-        eventsService.eventsSystem.registerListener(listener);
-    }
-
-    public static void trigger(Event eventObj) {
-        EventsService eventsService = instance();
-        eventsService.eventsSystem.trigger(eventObj);
-    }
-
-    public static void registerEventsSystem(EventsSystem eventsSystem)
+    public void registerEventsSystem(EventsSystem eventsSystem)
     {
         for(HashMap<Listener, ArrayList<Method>> event : eventsSystem.listeners.values())
         {
@@ -69,5 +53,15 @@ public class EventsService {
                 registerListener(listener);
             }
         }
+    }
+
+    @Override
+    public String getDescription() {
+        return "Globally accessible events system";
+    }
+
+    @Override
+    public Properties getStateStatistics() {
+        return new Properties().add("Event Handlers", new LazyDynamicPrimitive<>(this.eventsSystem.listeners.size()));//.add("Listener Objs", new LazyDynamicPrimitive<>(this.eventsSystem.listeners.toString()));
     }
 }

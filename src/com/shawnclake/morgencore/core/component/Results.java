@@ -5,7 +5,7 @@ import com.shawnclake.morgencore.core.component.objects.dynamic.primitives.LazyD
 import com.shawnclake.morgencore.core.component.property.Properties;
 
 /**
- * An opionated properties set
+ * An opinionated properties set
  * This class is meant to make it easier to quickly set up 1 or 2 result properties,
  * in particular this is useful when returning from functions with more than one
  * return type desired
@@ -59,28 +59,6 @@ public class Results extends Properties {
         this.add("morgen-main-result", new LazyDynamicPrimitive<>(result));
     }
 
-
-
-
-    //
-
-    /**
-     * Adds many main results
-     * @param results
-     * @param <T>
-     */
-    private<T> void addManyResults(T... results)
-    {
-        int i =0;
-        for(T result : results)
-        {
-            this.add("morgen-main-result"+i, new LazyDynamicPrimitive<>(result));
-            i++;
-        }
-
-        results = null;
-    }
-
     public Results(DynamicPrimitive... results) {
         this.addManyResults(results);
     }
@@ -126,60 +104,86 @@ public class Results extends Properties {
     }
 
 
-    //
+    /**
+     * Adds many main results
+     * @param results
+     * @param <T>
+     */
+    private<T> void addManyResults(T... results)
+    {
+        int i =0;
+        for(T result : results)
+        {
+            this.add("morgen-main-result"+i, new LazyDynamicPrimitive<>(result));
+            i++;
+        }
 
-
-    public void addResult(String key, DynamicPrimitive result) {
-        this.add(key, new LazyDynamicPrimitive<>(result));
-    }
-
-    public void addResult(String key, String result) {
-        this.add(key, new LazyDynamicPrimitive<>(result));
-    }
-
-    public void addResult(String key, int result) {
-        this.add(key, new LazyDynamicPrimitive<>(result));
-    }
-
-    public void addResult(String key, float result) {
-        this.add(key, new LazyDynamicPrimitive<>(result));
-    }
-
-    public void addResult(String key, double result) {
-        this.add(key, new LazyDynamicPrimitive<>(result));
-    }
-
-    public void addResult(String key, char result) {
-        this.add(key, new LazyDynamicPrimitive<>(result));
-    }
-
-    public void addResult(String key, boolean result) {
-        this.add(key, new LazyDynamicPrimitive<>(result));
-    }
-
-    public void addResult(String key, short result) {
-        this.add(key, new LazyDynamicPrimitive<>(result));
-    }
-
-    public void addResult(String key, long result) {
-        this.add(key, new LazyDynamicPrimitive<>(result));
-    }
-
-    public void addResult(String key, byte result) {
-        this.add(key, new LazyDynamicPrimitive<>(result));
-    }
-
-    public void addResult(String key, Object result) {
-        this.add(key, new LazyDynamicPrimitive<>(result));
+        results = null; // Prevents Heap pollution
     }
 
 
-    public DynamicPrimitive getMainResult()
+    public Results addResult(String key, DynamicPrimitive result) {
+        this.add(key, new LazyDynamicPrimitive<>(result));
+        return this;
+    }
+
+    public Results addResult(String key, String result) {
+        this.add(key, new LazyDynamicPrimitive<>(result));
+        return this;
+    }
+
+    public Results addResult(String key, int result) {
+        this.add(key, new LazyDynamicPrimitive<>(result));
+        return this;
+    }
+
+    public Results addResult(String key, float result) {
+        this.add(key, new LazyDynamicPrimitive<>(result));
+        return this;
+    }
+
+    public Results addResult(String key, double result) {
+        this.add(key, new LazyDynamicPrimitive<>(result));
+        return this;
+    }
+
+    public Results addResult(String key, char result) {
+        this.add(key, new LazyDynamicPrimitive<>(result));
+        return this;
+    }
+
+    public Results addResult(String key, boolean result) {
+        this.add(key, new LazyDynamicPrimitive<>(result));
+        return this;
+    }
+
+    public Results addResult(String key, short result) {
+        this.add(key, new LazyDynamicPrimitive<>(result));
+        return this;
+    }
+
+    public Results addResult(String key, long result) {
+        this.add(key, new LazyDynamicPrimitive<>(result));
+        return this;
+    }
+
+    public Results addResult(String key, byte result) {
+        this.add(key, new LazyDynamicPrimitive<>(result));
+        return this;
+    }
+
+    public Results addResult(String key, Object result) {
+        this.add(key, new LazyDynamicPrimitive<>(result));
+        return this;
+    }
+
+
+    public DynamicPrimitive getResult()
     {
         return this.get("morgen-main-result");
     }
 
-    public DynamicPrimitive getMainResults(int index)
+    public DynamicPrimitive getResult(int index)
     {
         return this.get("morgen-main-result"+index);
     }
